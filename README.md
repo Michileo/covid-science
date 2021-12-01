@@ -26,5 +26,10 @@
 最后将result_total3_2中最后几列整合进入coronasci3，生成coronasci4
 v2x_polyarchy	v2x_libdem	v2x_delibdem	v2x_egaldem	v2x_partipdem放后面
 
+下一步对coronasci_5（新上传）进行操作生成coronasci_6（hospital）
+1.API_SH.MED.BEDS.ZS_DS2_en_csv_v2_3365799文件中，按国家匹配（Country Name或者country code（对应ISOa3）），将数据整合进去，
+2.具体规则为生成两列新的数据，一列是Hospital beds (per 1,000 people)，另一列是Hosyear
+3.Hospital beds生成方式为用该国家最新一年的数据，例如某国数据范围为2010-2015年，此时选取2015年，另外一国为2010-2018，此时选取2018年。Hosyear即为选取的年份。
+
 
 
