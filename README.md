@@ -31,19 +31,19 @@ v2x_polyarchy	v2x_libdem	v2x_delibdem	v2x_egaldem	v2x_partipdem放后面
 2.具体规则为生成两列新的数据，一列是Hospital beds (per 1,000 people)，另一列是Hosyear
 3.Hospital beds生成方式为用该国家最新一年的数据，例如某国数据范围为2010-2015年，此时选取2015年，另外一国为2010-2018，此时选取2018年。Hosyear即为选取的年份。
 
-对coronasci_4进行操作，生成coronasci_time（大致逻辑如下）
+#  对coronasci_4进行操作，生成coronasci_time（大致逻辑如下）
 
 
-1.筛选特定时间范围内的政策生成新表
-2.定义新变量confinement_time,暂时赋值，confinement_time=30（后续可能会变成其他值）
-3.定义新变量confinement_patient,暂时赋值，confinement_patient=1000（后续可能会变成其他值）
-4.对coronasci_4按照国家（country或者ISO_A3）分类，每个国家类别内部按date_announced（时间日期）进行排序（从小到大，顺序）
-5.对每类国家进行操作，对第一个满足confirmed_cases大于confinement_patient的数据进行标记（生成新一列数据tipping_point,每个国家前述要求的赋值为1，其余赋值为0），定义新变量tipping_time，其值等于标记数据中的date_announced（即当tipping_point=1，tipping_time=date_announced）
-6.在每类国家中筛选出以下数据，放入coronasci_time
+##  1.筛选特定时间范围内的政策生成新表
+##  2.定义新变量confinement_time,暂时赋值，confinement_time=30（后续可能会变成其他值）
+##  3.定义新变量confinement_patient,暂时赋值，confinement_patient=1000（后续可能会变成其他值）
+##  4.对coronasci_4按照国家（country或者ISO_A3）分类，每个国家类别内部按date_announced（时间日期）进行排序（从小到大，顺序）
+##  5.对每类国家进行操作，对第一个满足confirmed_cases大于confinement_patient的数据进行标记（生成新一列数据tipping_point,每个国家前述要求的赋值为1，其余赋值为0），定义新变量tipping_time，其值等于标记数据中的date_announced（即当tipping_point=1，tipping_time=date_announced）
+##  6.在每类国家中筛选出以下数据，放入coronasci_time
 筛选条件是：confirmed_cases大于confinement_patient，且date_announced小于等于tipping_time+confinement_time
 
 
-7.coronasci_time中加入hospital的数据，具体规则为生成两列新的数据，一列是Hospital beds (per 1,000 people)，另一列是Hosyear
+##  7.coronasci_time中加入hospital的数据，具体规则为生成两列新的数据，一列是Hospital beds (per 1,000 people)，另一列是Hosyear
 Hospital beds生成方式为用该国家最新一年的数据，例如某国数据范围为2010-2015年，此时选取2015年，另外一国为2010-2018，此时选取2018年。Hosyear即为选取的年份。
 
 
