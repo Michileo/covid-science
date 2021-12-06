@@ -38,7 +38,7 @@ v2x_polyarchy	v2x_libdem	v2x_delibdem	v2x_egaldem	v2x_partipdem放后面
 ##  2.定义新变量confinement_time,暂时赋值，confinement_time=30（后续可能会变成其他值）
 ##  3.定义新变量confinement_patient,暂时赋值，confinement_patient=1000（后续可能会变成其他值）
 ##  4.对coronasci_4按照国家（country或者ISO_A3）分类，每个国家类别内部按date_announced（时间日期）进行排序（从小到大，顺序）
-##  5.对每类国家进行操作，对第一个满足confirmed_cases大于confinement_patient的数据进行标记（生成新一列数据tipping_point,每个国家前述要求的赋值为1，其余赋值为0），定义新变量tipping_time，其值等于标记数据中的date_announced（即当tipping_point=1，tipping_time=date_announced）
+##  5.对每类国家进行操作，对第一个满足confirmed_cases大于confinement_patient的数据进行标记（生成新一列数据tipping_point,每个国家满足前述要求的赋值为1，其余赋值为0），定义新变量tipping_time，其值等于标记数据中的date_announced（即当tipping_point=1，tipping_time=date_announced）
 ##  6.在每类国家中筛选出以下数据，放入coronasci_time
 筛选条件是：confirmed_cases大于confinement_patient，且date_announced小于等于tipping_time+confinement_time
 
